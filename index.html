@@ -9,7 +9,6 @@
     <script src="../addons/p5.sound.min.js"></script>
     <script src="sketch.js"></script>
     <video id="video" width=device-width height=device-height autoplay></video>
-    <canvas id="canvas" width=device-width height=device-height></canvas>
     <script>
       // Grab elements, create settings, etc.
       var video = document.getElementById('video');
@@ -22,21 +21,21 @@
           video.play();
         });
       } else if(navigator.getUserMedia) { // Standard
-    navigator.getUserMedia({ video: true }, function(stream) {
-        video.src = stream;
-        video.play();
-    }, errBack);
-} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
-    navigator.webkitGetUserMedia({ video: true }, function(stream){
-        video.src = window.webkitURL.createObjectURL(stream);
-        video.play();
-    }, errBack);
-} else if(navigator.mozGetUserMedia) { // Mozilla-prefixed
-    navigator.mozGetUserMedia({ video: true }, function(stream){
-        video.src = window.URL.createObjectURL(stream);
-        video.play();
-    }, errBack);
-}
+        navigator.getUserMedia({ video: true }, function(stream) {
+          video.src = stream;
+          video.play();
+        }, errBack);
+      } else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+        navigator.webkitGetUserMedia({ video: true }, function(stream){
+          video.src = window.webkitURL.createObjectURL(stream);
+          video.play();
+        }, errBack);
+      } else if(navigator.mozGetUserMedia) { // Mozilla-prefixed
+        navigator.mozGetUserMedia({ video: true }, function(stream){
+          video.src = window.URL.createObjectURL(stream);
+          video.play();
+        }, errBack);
+      }
     </script>
   </head>
   <body>
